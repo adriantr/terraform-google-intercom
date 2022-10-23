@@ -26,3 +26,15 @@ variable "intercom_fqdn" {
   default     = "custom.intercom.help"
   description = "Domain of the intercom server"
 }
+
+variable "intercom_port" {
+  type        = number
+  default     = 80
+  description = "Port to reach Intercom with"
+}
+
+variable "backend_service_protocol" {
+  type        = string
+  default     = "HTTP"
+  description = "Protocol for backend service"
+}
