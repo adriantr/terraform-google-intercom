@@ -13,7 +13,7 @@ resource "google_compute_global_address" "main" {
 
 resource "google_compute_backend_service" "main" {
   name     = "intercom"
-  protocol = "HTTPS"
+  protocol = var.backend_service_protocol
   backend {
     group = google_compute_global_network_endpoint_group.main.id
   }

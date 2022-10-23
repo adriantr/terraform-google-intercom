@@ -3,6 +3,7 @@ resource "google_dns_record_set" "main" {
   managed_zone = data.google_dns_managed_zone.main[0].name
   name         = "${var.dns_name}."
   type         = "A"
+  ttl          = "300"
 
   rrdatas = [google_compute_global_address.main.address]
 }
