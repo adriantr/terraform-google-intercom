@@ -22,6 +22,10 @@ resource "google_compute_backend_service" "main" {
 resource "google_compute_url_map" "main" {
   name            = "intercom"
   default_service = google_compute_backend_service.main.id
+  default_url_redirect {
+    https_redirect = true
+    strip_query    = false
+  }
 }
 
 resource "google_compute_target_https_proxy" "main" {
