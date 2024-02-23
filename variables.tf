@@ -38,3 +38,9 @@ variable "backend_service_protocol" {
   default     = "HTTP"
   description = "Protocol for backend service"
 }
+
+variable "enable_hsts" {
+  type        = bool
+  default     = false
+  description = "Sets a Strict-Transport-Security header"
+}

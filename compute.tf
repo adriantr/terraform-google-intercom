@@ -12,8 +12,12 @@ resource "google_compute_global_address" "main" {
 }
 
 resource "google_compute_backend_service" "main" {
-  name     = "intercom"
-  protocol = var.backend_service_protocol
+  name                    = "intercom"
+  protocol                = var.backend_service_protocol
+  custom_response_headers = var.enable_hsts ? [
+    "Strict-Transport-Security:max-age=31536000; includeSubDomains"
+  ] : []
+
   backend {
     group = google_compute_global_network_endpoint_group.main.id
   }
